@@ -1,0 +1,141 @@
+{
+    "title_screen" : {
+        "x": 0,
+        "y": 0,
+        "w": 427,
+        "h":240,
+        "frame": 1,
+        "speed": 5, "path":
+        "assets/TitleScreen.png"
+    },
+
+    "hero_walk_right" : {
+        "x": 0,
+        "y": 23,
+        "w": 19,
+        "h":23,
+        "frame": 8,
+        "speed": 5,
+        "path": "assets/hero.png"
+    },
+
+    "hero_walk_left" : {
+        "x": 0,
+        "y": 0,
+        "w": 19,
+        "h":23,
+        "frame": 8,
+        "speed": 5,
+        "path": "assets/hero.png"
+    },
+
+    "hero_walk_down" : {
+        "x": 0,
+        "y": 0,
+        "w": 19,
+        "h":23,
+        "frame": 8,
+        "speed": 5,
+        "path": "assets/hero.png"
+    },
+
+    "hero_walk_up" : { "x": 0, "y": 0,  "w": 19, "h":23, "frame": 8, "speed": 5, "path": "assets/hero.png" },
+    "dash_walk_right" : { "x": 0, "y": 23, "w": 19, "h":23, "frame": 8, "speed": 5, "path": "assets/hero.png" },
+    "dash_walk_left" : { "x": 0, "y": 0, "w": 19, "h":23, "frame": 8, "speed": 5, "path": "assets/hero.png" },
+    "dash_walk_down" : { "x": 0, "y": 0, "w": 19, "h":23, "frame": 8, "speed": 5, "path": "assets/hero.png" },
+    "dash_walk_up" : { "x": 0, "y": 0,  "w": 19, "h":23, "frame": 8, "speed": 5, "path": "assets/hero.png" },
+    "boss_walk_left" : {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h":32,
+        "frame": 12,
+        "speed": 8,
+        "path": "assets/Boss.png"
+    },
+    "boss_walk_right" : {
+        "x": 0,
+        "y": 32,
+        "w": 32,
+        "h":32,
+        "frame": 12,
+        "speed": 8,
+        "path": "assets/Boss.png"
+    },
+    "boss_idle_left" : {
+        "x": 0,
+        "y": 64,
+        "w": 32,
+        "h":32,
+        "frame": 8,
+        "speed": 8,
+        "path": "assets/Boss.png"
+    },
+    "boss_idle_right" : {
+        "x": 0,
+        "y": 96,
+        "w": 32,
+        "h":32,
+        "frame": 8,
+        "speed": 8,
+        "path": "assets/Boss.png"
+    },
+    "miniboss" : { "x": 0, "y": 0,  "w": 8, "h":8, "frame": 10, "speed": 1, "path": "assets/Mouche.png" },
+    "item1" : { "x": 0, "y": 0,  "w": 16, "h":16, "frame": 14, "speed": 6, "path": "assets/rune1.png" },
+    "item2" : { "x": 0, "y": 0,  "w": 16, "h":16, "frame": 22, "speed": 6, "path": "assets/rune2.png" },
+    "item3" : { "x": 0, "y": 0,  "w": 16, "h":16, "frame": 23, "speed": 6, "path": "assets/rune3.png" },
+    "fireball" : { "x": 0, "y": 0,  "w": 8, "h":8, "frame": 4, "speed": 8, "path": "assets/Fireball.png" },
+    "fireworks" : { "x": 0, "y": 0,  "w": 8, "h":8, "frame": 6, "speed": 5, "path": "assets/Fireworks.png" },
+    "mini_fireworks" : { "x": 0, "y": 0,  "w": 4, "h":4, "frame": 6, "speed": 5, "path": "assets/MiniFireworks.png" },
+    "detonation" : { "x": 0, "y": 0,  "w": 20, "h":28, "frame": 8, "speed": 5, "path": "assets/Lightning.png" },
+    "healing" : {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 26,
+        "frame": 11,
+        "speed": 5,
+        "path": "assets/Shield.png"
+    },
+    "freezer" : {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h":32,
+        "frame": 10,
+        "speed": 10,
+        "path": "assets/Freeze.png"
+    },
+    "flame" : { "x": 0, "y": 0,  "w": 8, "h":8, "frame": 13, "speed": 5, "path": "assets/FlameThrower.png" },
+    "fire" : { "x": 0, "y": 0,  "w": 8, "h":12, "frame": 23, "speed": 5, "path": "assets/Fire.png" },
+    "level_one" : { "x": 0, "y": 0,  "w": 400, "h":224, "frame": 1, "speed": 1, "path": "assets/LevelOne.png" },
+    "rock" : { "x": 0, "y": 0,  "w": 16, "h":16, "frame": 1, "speed": 5, "path": "assets/skull.png"},
+    "skull" : { "x": 0, "y": 0,  "w": 16, "h":16, "frame": 1, "speed": 5, "path": "assets/skull.png"},
+    "death_one" : {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h":32,
+        "frame": 7,
+        "speed": 10,
+        "path": "assets/DeathOne.png"
+    },
+    "death_two" : {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h":32,
+        "frame": 6,
+        "speed": 10,
+        "path": "assets/DeathTwo.png"
+    },
+    "death_three" : {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h":16,
+        "frame": 6,
+        "speed": 10,
+        "path": "assets/DeathThree.png"
+    }
+}
