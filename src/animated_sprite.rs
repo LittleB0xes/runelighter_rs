@@ -1,5 +1,7 @@
 use macroquad::prelude::*;
 
+use crate::sprite_library::SpriteLibraryData;
+
 pub struct AnimatedSprite{
     pub rect: Rect,
     max_frame: i32,
@@ -40,10 +42,10 @@ impl AnimatedSprite{
         }
     }
 
-    pub fn set_animation(&mut self, rect: Rect, max_frame: i32, time: i32) {
-        self.rect = rect;
-        self.max_frame = max_frame;
-        self.time = time;
+    pub fn set_animation(&mut self, data: &SpriteLibraryData) {
+        self.rect = Rect::new(data.x as f32, data.y as f32, data.w as f32, data.h as f32);
+        self.max_frame = data.frame;
+        self.time = data.speed;
         self.current_frame = 0;
         self.ellapsed_tick = 0;
         self.is_playing = true;

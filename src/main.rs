@@ -1,5 +1,5 @@
 use macroquad::prelude::*;
-use serde_json::Value;
+use std::collections::HashMap;
 
 mod level;
 use level::*;
@@ -13,7 +13,7 @@ mod hero;
 struct Game {
     scale: f32,
     level: Level,
-    atlas: Value,
+    atlas: HashMap<String, SpriteLibraryData>,
 }
 
 impl Game {

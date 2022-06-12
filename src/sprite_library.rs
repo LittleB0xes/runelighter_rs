@@ -1,42 +1,59 @@
 use std::fs::File;
 use std::path::Path;
+use serde::Deserialize;
 
-use serde_json::{Result, Value};
+use serde_json::Result;
 use std::collections::HashMap;
-//use serde_json::Result;
 
 
+#[derive(Deserialize, Debug)]
 pub struct SpriteLibraryData {
-  x: i32,
-  y: i32,
-  w: i32,
-  h: i32,
-  frame: i32,
-  speed: i32,
-  path: String,
+  pub x: i32,
+  pub y: i32,
+  pub w: i32,
+  pub h: i32,
+  pub frame: i32,
+  pub speed: i32,
+  pub path: String,
 }
 
-pub fn read_atlas() -> Result<Value> {
+struct SpriteLibrary {
+  data: HashMap<String, SpriteLibraryData>
+}
+
+impl SpriteLibrary {
+}
+
+pub fn read_atlas() -> Result<HashMap<String, SpriteLibraryData>> {
   let json_file_path = Path::new("./assets/atlas.json");
-  let file = File::open(json_file_path).expect("erreur lecture: ");
-    // Parse the string of data into serde_json::Value.
-  let v: Value = serde_json::from_reader(file).unwrap();
+  let atlas_file = File::open(json_file_path).expect("erreur lecture: ");
 
-    // Access parts of the data by indexing with square brackets.
-  //println!("Please call {} at the number {}", v["hero_walk_left"], v["speed"]);
-  
 
-  Ok(v)
+  let atlas: HashMap<String, SpriteLibraryData> = serde_json::from_reader(atlas_file)?;
+
+  Ok(atlas)
 }
 
+pub fn extract_data(atlas: &HashMap<String,SpriteLibraryData>, name: String) -> SpriteLibraryData {
+  let mut data =  SpriteLibraryData{
+    x: 0,
+    y: 0,
+    w: 0,
+    h: 0,
+    speed: 0,
+    frame: 0,
+    path: "".to_string()
+  };
+  data.x = atlas.get(&name).unwrap().x;
+  data.y = atlas.get(&name).unwrap().y;
+  data.w = atlas.get(&name).unwrap().w;
+  data.h = atlas.get(&name).unwrap().h;
+  data.frame = atlas.get(&name).unwrap().frame;
+  data.speed = atlas.get(&name).unwrap().speed;
+  data.path = String::from(&atlas.get(&name).unwrap().path);
+  data
+}
 
-
-fn json_to_hashmap(json: &str, keys: Vec<&str>) -> Result<HashMap<String, Value>> {
-  let mut lookup: HashMap<String, Value> = serde_json::from_str(json).unwrap();
-  let mut map = HashMap::new();
-  for key in keys {
-      let (k, v) = lookup.remove_entry (key).unwrap();
-      map.insert(k, v);
-  }
-  Ok(map)
+pub fn get_path(atlas: &HashMap<String,SpriteLibraryData>, name: String) -> &str {
+  &atlas.get(&name).unwrap().path
 }

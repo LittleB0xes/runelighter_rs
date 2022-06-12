@@ -1,9 +1,9 @@
 use macroquad::prelude::*;
-use serde_json::Value;
 
 use std::collections::HashMap;
 
 use crate::animated_sprite::AnimatedSprite;
+use crate::sprite_library::{SpriteLibraryData, extract_data, get_path};
 
 #[derive(Eq, PartialEq, Clone, Copy, Hash)]
 enum AnimationState {
@@ -14,7 +14,7 @@ enum AnimationState {
     Idle,
 }
 
-struct SpriteLibraryData {
+struct LibData {
     rect: Rect,
     speed: i32,
     frames: i32,
@@ -35,33 +35,27 @@ pub struct Hero {
 }
 
 impl Hero {
-    pub fn new(xo: f32, yo: f32, atlas: &Value) -> Hero {
-        let sprite_texture =
-            Texture2D::from_file_with_format(include_bytes!("../assets/hero.png"), None);
-        sprite_texture.set_filter(FilterMode::Nearest);
+    pub fn new(xo: f32, yo: f32, atlas: &HashMap<String, SpriteLibraryData>) -> Hero {
+        
 
 
         //--- test ici
-        println!("test dans hero: {}", atlas["hero_walk_left"]["frame"]);
 
         let mut animation_list = HashMap::new();
         animation_list.insert(
             AnimationState::WalkLeft,
-            SpriteLibraryData {
-                rect: Rect::new(0.0, 46.0, 19.0, 23.0),
-                frames: 8,
-                speed: 5,
-            },
+            extract_data(atlas, "hero_walk_left".to_string())
         );
         animation_list.insert(
             AnimationState::WalkRight,
-            SpriteLibraryData {
-                rect: Rect::new(0.0, 23.0, 19.0, 23.0),
-                frames: 8,
-                speed: 5,
-            },
+            extract_data(atlas, "hero_walk_right".to_string())
+            
         );
+        
 
+        let sprite_texture = Texture2D::from_file_with_format(include_bytes!("../assets/hero.png"), None);
+        sprite_texture.set_filter(FilterMode::Nearest);
+        
         Hero {
             x: xo,
             y: yo,
@@ -184,7 +178,7 @@ impl Hero {
             else {
                 let data = self.animation_list.get(&self.animation_state).unwrap();
                 self.sprite
-                    .set_animation(data.rect, data.frames, data.speed);
+                    .set_animation(data);
             }
         }
     }

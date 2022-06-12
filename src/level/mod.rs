@@ -1,10 +1,10 @@
 use macroquad::prelude::*;
-use serde_json::Value;
-
+use std::collections::HashMap;
 
 mod architect;
 use architect::*;
 
+use crate::sprite_library::SpriteLibraryData;
 use crate::hero::*;
 
 pub struct Level {
@@ -15,7 +15,7 @@ pub struct Level {
 }
 
 impl Level {
-  pub fn new(scale: f32, atlas: &Value) -> Level {
+  pub fn new(scale: f32, atlas: &HashMap<String, SpriteLibraryData>) -> Level {
     let bg_texture = Texture2D::from_file_with_format(include_bytes!("../../assets/LevelOne.png"), None);
 
     Level {
